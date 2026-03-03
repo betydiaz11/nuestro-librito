@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Our Nuestro librito🕷️🎀</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Georgia, serif;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  perspective:1600px;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,79,163,0.4), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(225,6,0,0.5), transparent 40%),
+    linear-gradient(135deg,#0b132b,#1c2541,#3a506b);
+  color:white;
+}
+
+body::before{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(255,255,255,0.05) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(255,255,255,0.05) 40px);
+  animation:moveWeb 25s linear infinite;
+  z-index:0;
+}
+
+@keyframes moveWeb{
+  from{transform:translate(0,0);}
+  to{transform:translate(-150px,-150px);}
+}
+
+.floating{
+  position:fixed;
+  bottom:-30px;
+  font-size:22px;
+  animation:float 14s linear infinite;
+  opacity:.8;
+}
+
+@keyframes float{
+  from{transform:translateY(0) rotate(0deg);}
+  to{transform:translateY(-120vh) rotate(360deg);}
+}
+
+.book{
+  width:950px;
+  height:600px;
+  background:rgba(15,23,42,0.95);
+  border-radius:30px;
+  box-shadow:0 50px 100px rgba(0,0,0,.6);
+  position:relative;
+  transform:rotateX(10deg);
+  transform-style:preserve-3d;
+  overflow:hidden;
+  z-index:2;
+}
+
+.book::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  width:8px;
+  height:100%;
+  background:linear-gradient(to bottom,#ff4fa3,#e10600,#ff4fa3);
+  z-index:5;
+}
+
+.page{
+  position:absolute;
+  width:50%;
+  height:100%;
+  top:0;
+  background:linear-gradient(145deg,#1c2541,#3a506b);
+  padding:40px;
+  box-sizing:border-box;
+  transform-origin:left center;
+  transform:rotateY(180deg);
+  transition:transform 1.3s ease;
+  backface-visibility:hidden;
+  overflow:auto;
+}
+
+.page.active{
+  transform:rotateY(0deg);
+  z-index:3;
+}
+
+.page.left{
+  transform:rotateY(-180deg);
+}
+
+h1,h2{
+  text-align:center;
+  background:linear-gradient(90deg,#ff4fa3,#ff0000);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+p{
+  font-size:16px;
+  line-height:1.6;
+}
+
+/* GALERÍA */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.gallery img, .gallery video{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:15px;
+}
+
+/* AUDIO */
+audio{
+  width:100%;
+  margin-top:20px;
+}
+
+/* BOTONES */
+.controls{
+  position:absolute;
+  bottom:25px;
+  left:0;
+  right:0;
+  display:flex;
+  justify-content:space-between;
+  padding:0 50px;
+  z-index:10;
+}
+
+button{
+  background:linear-gradient(90deg,#ff4fa3,#e10600);
+  border:none;
+  color:white;
+  padding:14px 30px;
+  border-radius:30px;
+  cursor:pointer;
+  font-size:15px;
+  transition:.3s;
+}
+button:hover{ transform:scale(1.1); }
+
+</style>
+</head>
+
+<body>
+
+<script>
+for(let i=0;i<25;i++){
+  let h=document.createElement("div");
+  h.className="floating";
+  h.innerHTML=Math.random()>0.5?"🕷️":"🎀";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=8+Math.random()*10+"s";
+  document.body.appendChild(h);
+}
+</script>
+
+<div class="book">
+
+<!-- PORTADA -->
+<div class="page active" style="left:0">
+  <h1>Nuestra Historia 💖</h1>
+  <p>Hola flakito bello. En este librito quiero iniciar mencionando un poco de como comenzó nuestra historia. Aún recuerdo cómo yo estaba acostada ese día en la sala de mi casa y me llegó tu mensaje; recuerdo que al inicio para mi era una plática sencilla, de un nuevo amigo que acababa de hacer pero al continuar la plática se sentía el famoso "maripositas en el estómago". Es gracioso porque hasta mejor me fuí a mi cuarto para estar más cómoda al hablar contigo jajajajaja. Cada recuerdo que formé contigo es tan bonito y nostálgico; sé que tenemos nuestra historia un poco tensa y complicada pero sé que nos estamos esforzando por borrar los malos recuerdos y empezar a crear nuevos y bonitos. Algo que recuerdo mucho son esas desveladas en pandemia donde pasabamos toda la noche hablando, jugando y al despertar ver que la llamada había permanecido todo el tiempo sin ser colgada, no sé, para mí era algo tan tan bonito que recordarlo siempre me saca una sonrisa. También recuerdo nuestras salidas a la plazita donde daba lata todo el día por querer verte y cuando te veía llegar me ponía muy nerviosa que no sabía como comportarme, como actuar jajaja.
+Sin duda eres de mis mejores recuerdos del final de mi niñéz y toda mi adolescencia.
+Eres todo lo que siempre quise y todo lo que siempre soñé 💗  </p>
+  <img src="portada.jpg" style="width:100%; border-radius:20px;">
+</div>
+
+<!-- MÚSICA -->
+<div class="page" style="left:50%">
+  <h2>Nuestra Canción 🎶</h2>
+  <p>Pon play y disfruta el libro...</p>
+  <audio controls loop>
+    <source src="cancion.mp3.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<!-- TEXTO -->
+<div class="page" style="left:0">
+  <h2>Capítulo 1 🕷️</h2>
+  <p>Si te soy sincera, no sé en que momento deje de verte como "un amigo", pero estoy segura que nunca pude volver a verte así. Yo sé que dirás "según nunca me dejó de ver con ojos de amor pero por más que le rogaba no quería estar conmigo"; Y si, en eso tendrías razón. Ya eran muchas heridas las cuales intentaba curar y llegaban más; yo ya no quería que ninguno de los dos sufriera. Y si te soy sincera, un día con el corazón hecho pedazos y "tocandome el corazón" prometí que me alejaría de ti aunque me doliera toda la vida porque yo solo quería que fueras felíz aunque eso implicara tener que irme de tu lado. Ya no quería más chismes, malos ratos, solo quería que entre nosotros todo permaneciera bien pero me di cuenta que si nos teníamos cerca nos lastimaba, el alejarnosdefinitivamente nos mataba vivos por completo jajaja. Así que decidí tomar una última oportunidad arriesgando todo con miedo a perderlo por completo y creeme que estoy felíz de haber tomado esa decisión. Fuiste la mejor decisión que he tomado en toda mi vida 💞</p>
+</div>
+
+<!-- GALERÍA DE FOTOS -->
+<div class="page" style="left:50%">
+  <h2>Nuestras Fotos 📸</h2>
+  <div class="gallery">
+    <img src="foto1.jpg.jpeg">
+    <img src="foto2.jpg.jpeg">
+    <img src="foto3.jpg.jpeg">
+    <img src="foto4.jpg.jpeg">
+  </div>
+</div>
+
+<!-- GALERÍA DE VIDEOS -->
+<div class="page" style="left:0">
+  <h2>Nuestros Videos 🎥</h2>
+  <div class="gallery">
+    <video src="video1.mp4" controls></video>
+    <video src="video2.mp4" controls></video>
+    <video src="video3.mp4" controls></video>
+     </div>
+</div>
+
+<!-- FINAL -->
+<div class="page" style="left:50%">
+  <h2>Final ❤️</h2>
+  <p>“Si todo empezó con un mensaje, quiero que todo lo demás siga empezando contigo.”
+Eres sin duda el amor de todas mis vidas, el niño de mis ojos y mi razón de existir.
+Me gusta mucho estar contigo, abrazarte, besarte y hacerte "repelar" por no querer besarte jajaja. 
+Gracias por hacerme sentir tantas cosas bonitas en todos estos años. 
+Sin duda espero con ansias el día que nuestros hijos nos pregunten por nosotros y suspirar mientras contamos cada uno la versión de como nos enamoramos y como terminamos juntos ❤️</p>
+</div>
+
+<div class="controls">
+  <button onclick="prevPage()">⬅ Anterior</button>
+  <button onclick="nextPage()">Siguiente ➡</button>
+</div>
+
+</div>
+
+<script>
+const pages=document.querySelectorAll('.page');
+let current=0;
+
+function updatePages(){
+  pages.forEach((p,i)=>{
+    p.classList.remove('active','left');
+    if(i<current) p.classList.add('left');
+    if(i===current || i===current+1) p.classList.add('active');
+  });
+}
+
+function nextPage(){
+  if(current<pages.length-2){
+    current+=2;
+    updatePages();
+  }
+}
+
+function prevPage(){
+  if(current>0){
+    current-=2;
+    updatePages();
+  }
+}
+
+updatePages();
+</script>
+
+</body>
+</html>
